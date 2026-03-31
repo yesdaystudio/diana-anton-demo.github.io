@@ -106,7 +106,13 @@
       opacity: 0.6;
     }
   </style>
-
+  .divider-line {
+  width: 100%;
+  max-width: 300px;
+  height: 1px;
+  background-color: #d8d2c8;
+  margin: 30px auto 10px;
+}
   <script>
     function toggle(id) {
       var x = document.getElementById(id);
@@ -144,6 +150,7 @@
 
 <!-- TLAČIDLÁ -->
 <div class="buttons">
+  <div class="divider-line"></div>
   <div class="button" onclick="toggle('mapa')">MAPA</div>
   <div class="button" onclick="toggle('program')">PROGRAM</div>
   <div class="button" onclick="toggle('menu')">MENU</div>
