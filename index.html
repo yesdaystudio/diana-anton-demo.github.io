@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <title>Naša svadba</title>
 
-  <!-- elegantné fonty -->
+  <!-- fonty -->
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      background-color: #f2ede6; /* dark ivory */
+      background-color: #f2ede6;
       color: #3f3f3f;
       font-family: 'Raleway', sans-serif;
       text-align: center;
@@ -20,15 +20,19 @@
     }
 
     .container {
-      max-width: 500px;
+      max-width: 600px;
       margin: auto;
+      border: 1px solid #d8d2c8;
+      padding: 50px 30px;
+      background-color: rgba(255,255,255,0.4);
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 48px;
       font-weight: 300;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
+      line-height: 1.3;
       margin-bottom: 20px;
     }
 
@@ -50,9 +54,24 @@
     p {
       font-size: 18px;
       margin: 8px 0;
-      letter-spacing: 1px;
     }
 
+    a {
+      color: #3f3f3f;
+      text-decoration: none;
+      border-bottom: 1px solid #aaa;
+    }
+
+    a:hover {
+      opacity: 0.6;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 20px;
+    }
   </style>
 
 </head>
@@ -60,9 +79,10 @@
 <body>
 
   <div class="container">
-    <div class="line"></div>
 
 ```
+<div class="line"></div>
+
 <h1>Diana<br>&<br>Anton</h1>
 
 <div class="line"></div>
@@ -76,10 +96,45 @@
 <p>Piešťany</p>
 
 <div class="line"></div>
+
+<h2>Mapa</h2>
+
+<iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed"></iframe>
+
+<h2>Sobáš</h2>
+<p>Kaplnka Božského Srdca Ježišovho</p>
+<p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank">
+    Zobraziť na mape
+  </a>
+</p>
+
+<h2>Svadobná zábava</h2>
+<p>Kursalon</p>
+<p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank">
+    Zobraziť na mape
+  </a>
+</p>
+
+<h2>Ubytovanie</h2>
+
+<p>Hotel Park Avenue</p>
+<p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank">
+    Zobraziť na mape
+  </a>
+</p>
+
+<p>Penzión Diana</p>
+<p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank">
+    Zobraziť na mape
+  </a>
+</p>
 ```
 
   </div>
 
 </body>
 </html>
-
