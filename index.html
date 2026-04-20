@@ -5,145 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naša svadba | Diana & Anton</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #f6f1eb;
+      --text: #3e3a36;
+      --muted: #8b8178;
+      --line: #d8cfc5;
+      --card: rgba(255, 255, 255, 0.45);
+      --button-bg: #3e3a36;
+      --button-text: #f6f1eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background-color: #f2ede6;
-      color: #3f3f3f;
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Raleway', sans-serif;
       text-align: center;
-      padding: 80px 20px;
+      padding: 64px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 50px 30px;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .top-line,
+    .bottom-line {
+      width: 72px;
+      height: 1px;
+      background-color: var(--line);
+      margin: 0 auto 24px;
+    }
+
+    .bottom-line {
+      margin: 24px auto 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      line-height: 1.3;
+      font-size: 58px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      line-height: 1.1;
       margin: 0;
     }
 
-    .line {
-      width: 80px;
-      height: 1px;
-      background-color: #bfb8ae;
-      margin: 20px auto;
+    .date {
+      margin-top: 26px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    p {
+    .intro {
+      margin-top: 26px;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
     .hero-image {
-      margin: 40px auto 20px;
-      max-width: 500px;
+      margin: 42px auto 28px;
+      max-width: 540px;
     }
 
     .hero-image img {
       width: 100%;
-      border-radius: 10px;
       display: block;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
     }
 
     .rsvp-section {
-      margin: 40px 0;
+      margin: 10px 0 42px;
+    }
+
+    .rsvp-note {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
     }
 
     .btn-rsvp {
       display: inline-block;
-      padding: 15px 40px;
-      border: 1px solid #3f3f3f;
+      padding: 14px 34px;
+      border: 1px solid var(--button-bg);
       background: transparent;
-      color: #3f3f3f;
+      color: var(--button-bg);
       text-decoration: none;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 3px;
-      transition: all 0.4s ease;
       text-transform: uppercase;
+      transition: all 0.35s ease;
     }
 
     .btn-rsvp:hover {
-      background: #3f3f3f;
-      color: #f2ede6;
+      background: var(--button-bg);
+      color: var(--button-text);
     }
 
     .story {
-      margin: 40px auto;
+      max-width: 620px;
+      margin: 0 auto 42px;
+      padding: 0 10px;
+    }
+
+    .story p {
       font-size: 17px;
-      max-width: 500px;
+      line-height: 1.9;
+      color: var(--text);
+      margin: 0;
     }
 
-    .countdown {
-      margin: 35px auto 15px;
-      padding: 24px 20px;
-      max-width: 420px;
-      border: 1px solid #d8d2c8;
-      background-color: rgba(255, 255, 255, 0.35);
-    }
-
-    .countdown-title {
-      font-size: 13px;
-      letter-spacing: 3px;
-      color: #7a7269;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .countdown-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .countdown-box {
-      padding: 10px 6px;
-    }
-
-    .countdown-value {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .countdown-label {
-      display: block;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: #7a7269;
+    .divider-line {
+      width: 100%;
+      max-width: 260px;
+      height: 1px;
+      background-color: var(--line);
+      margin: 28px auto 22px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
+      gap: 22px;
+      margin-top: 10px;
       flex-wrap: wrap;
     }
 
     .button {
       cursor: pointer;
-      letter-spacing: 2px;
-      font-size: 13px;
-      color: #6a6a6a;
-      position: relative;
-      text-transform: uppercase;
-      background: none;
       border: none;
+      background: none;
+      padding: 8px 4px;
       font-family: 'Raleway', sans-serif;
-      padding: 10px;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
     }
 
     .button::after {
@@ -151,51 +171,92 @@
       display: block;
       width: 0;
       height: 1px;
-      background: #6a6a6a;
+      background: var(--text);
       transition: width 0.3s ease;
-      margin: 5px auto 0;
+      margin: 7px auto 0;
+    }
+
+    .button:hover {
+      color: var(--text);
     }
 
     .button:hover::after {
       width: 100%;
     }
 
-    .divider-line {
-      width: 100%;
-      max-width: 300px;
-      height: 1px;
-      background-color: #d8d2c8;
-      margin: 30px auto 10px;
-    }
-
     .content {
       display: none;
       margin-top: 30px;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.35s ease;
+      padding: 28px 24px;
+      background: var(--card);
+      border: 1px solid rgba(216, 207, 197, 0.9);
+      border-radius: 16px;
+      backdrop-filter: blur(3px);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      margin: 0 0 18px;
+      letter-spacing: 1px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.7;
     }
 
     iframe {
       width: 100%;
       height: 320px;
       border: none;
-      margin-top: 15px;
-      border-radius: 6px;
+      margin-top: 10px;
+      border-radius: 12px;
+    }
+
+    .map-links {
+      margin-top: 24px;
+    }
+
+    .map-links p {
+      margin: 12px 0;
+      font-size: 15px;
     }
 
     a.map-link {
-      color: #3f3f3f;
+      color: var(--text);
       text-decoration: none;
-      border-bottom: 1px solid #aaa;
+      border-bottom: 1px solid rgba(62, 58, 54, 0.35);
+      padding-bottom: 2px;
+      transition: opacity 0.25s ease;
     }
 
     a.map-link:hover {
-      opacity: 0.6;
+      opacity: 0.65;
+    }
+
+    .timeline-item,
+    .menu-item {
+      margin: 14px 0;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .timeline-item strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      margin-right: 6px;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(8px);
       }
       to {
         opacity: 1;
@@ -205,23 +266,30 @@
 
     @media (max-width: 640px) {
       body {
-        padding: 50px 16px;
-      }
-
-      .container {
-        padding: 30px 16px;
+        padding: 42px 16px 60px;
       }
 
       h1 {
-        font-size: 40px;
+        font-size: 44px;
       }
 
-      p {
-        font-size: 17px;
+      .intro,
+      .story p,
+      .timeline-item,
+      .menu-item {
+        font-size: 16px;
       }
 
-      .countdown-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .content {
+        padding: 22px 16px;
+      }
+
+      iframe {
+        height: 260px;
+      }
+
+      .buttons {
+        gap: 14px;
       }
     }
   </style>
@@ -232,7 +300,6 @@
 
       sections.forEach(section => {
         const el = document.getElementById(section);
-
         if (!el) return;
 
         if (section === id) {
@@ -242,86 +309,28 @@
         }
       });
     }
-
-    function updateCountdown() {
-      const weddingDate = new Date("2026-09-19T15:00:00");
-      const now = new Date();
-      const difference = weddingDate - now;
-
-      const daysEl = document.getElementById("days");
-      const hoursEl = document.getElementById("hours");
-      const minutesEl = document.getElementById("minutes");
-      const secondsEl = document.getElementById("seconds");
-
-      if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
-        return;
-      }
-
-      if (difference <= 0) {
-        daysEl.textContent = "0";
-        hoursEl.textContent = "0";
-        minutesEl.textContent = "0";
-        secondsEl.textContent = "0";
-        return;
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / (1000 * 60)) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      daysEl.textContent = days;
-      hoursEl.textContent = hours;
-      minutesEl.textContent = minutes;
-      secondsEl.textContent = seconds;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    });
   </script>
 </head>
 <body>
   <div class="container">
-    <div class="line"></div>
-    <h1>Diana<br>&<br>Anton</h1>
-    <div class="line"></div>
+    <div class="top-line"></div>
+    <div class="eyebrow">Naša svadba</div>
 
-    <p>Vitajte na našej svadobnej stránke ♥</p>
-    <p style="letter-spacing: 2px; margin-top: 10px;">19. september 2026</p>
+    <h1>Diana<br>&<br>Anton</h1>
+
+    <div class="bottom-line"></div>
+
+    <div class="date">19. september 2026</div>
+
+    <p class="intro">Vitajte na našej svadobnej stránke ♥</p>
 
     <div class="hero-image">
       <img src="rings.jpg" alt="Svadobné prstene">
     </div>
 
     <div class="rsvp-section">
-      <p style="font-size: 14px; margin-bottom: 20px; color: #7a7269;">
-        Prosíme o potvrdenie vašej účasti do 31.7.2026
-      </p>
+      <div class="rsvp-note">Prosíme o potvrdenie vašej účasti do 31.7.2026</div>
       <a href="https://yesdaystudio.github.io/Klientska-zona-premium/" class="btn-rsvp">Potvrdiť účasť</a>
-    </div>
-
-    <div class="countdown">
-      <div class="countdown-title">Odpočítavanie do nášho dňa</div>
-      <div class="countdown-grid">
-        <div class="countdown-box">
-          <span id="days" class="countdown-value">0</span>
-          <span class="countdown-label">DNÍ</span>
-        </div>
-        <div class="countdown-box">
-          <span id="hours" class="countdown-value">0</span>
-          <span class="countdown-label">HODÍN</span>
-        </div>
-        <div class="countdown-box">
-          <span id="minutes" class="countdown-value">0</span>
-          <span class="countdown-label">MINÚT</span>
-        </div>
-        <div class="countdown-box">
-          <span id="seconds" class="countdown-value">0</span>
-          <span class="countdown-label">SEKÚND</span>
-        </div>
-      </div>
     </div>
 
     <div class="story">
@@ -334,33 +343,42 @@
     </div>
 
     <div class="buttons">
-      <div class="button" onclick="toggle('mapa')">Mapa</div>
-      <div class="button" onclick="toggle('harmonogram')">Harmonogram</div>
-      <div class="button" onclick="toggle('menu')">Menu</div>
+      <button class="button" onclick="toggle('mapa')">Mapa</button>
+      <button class="button" onclick="toggle('harmonogram')">Harmonogram</button>
+      <button class="button" onclick="toggle('menu')">Menu</button>
     </div>
 
     <div class="divider-line"></div>
 
     <div id="mapa" class="content">
+      <h2 class="section-title">Miesta</h2>
+      <div class="section-intro">
+        Kliknutím na názov miesta otvoríte navigáciu v Google Maps.
+      </div>
+
       <iframe src="https://maps.google.com/maps?q=Piešťany&z=13&output=embed" loading="lazy"></iframe>
 
-      <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener noreferrer">Kaplnka Božského Srdca Ježišovho</a></p>
-      <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank" rel="noopener noreferrer">Kursalon</a></p>
-      <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener noreferrer">Hotel Park Avenue</a></p>
-      <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank" rel="noopener noreferrer">Penzión Diana</a></p>
+      <div class="map-links">
+        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener noreferrer">Kaplnka Božského Srdca Ježišovho</a></p>
+        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Kursalon+Piestany" target="_blank" rel="noopener noreferrer">Kursalon</a></p>
+        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener noreferrer">Hotel Park Avenue</a></p>
+        <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Penzion+Diana+Piestany" target="_blank" rel="noopener noreferrer">Penzión Diana</a></p>
+      </div>
     </div>
 
     <div id="harmonogram" class="content">
-      <p><strong>15:00</strong> – Sobáš</p>
-      <p><strong>17:00</strong> – Večera</p>
-      <p><strong>19:00</strong> – Prvý tanec</p>
-      <p><strong>20:00</strong> – Zábava</p>
+      <h2 class="section-title">Harmonogram</h2>
+      <div class="timeline-item"><strong>15:00</strong> Sobáš</div>
+      <div class="timeline-item"><strong>17:00</strong> Večera</div>
+      <div class="timeline-item"><strong>19:00</strong> Prvý tanec</div>
+      <div class="timeline-item"><strong>20:00</strong> Zábava</div>
     </div>
 
     <div id="menu" class="content">
-      <p>Polievka</p>
-      <p>Hlavné jedlo</p>
-      <p>Dezert</p>
+      <h2 class="section-title">Menu</h2>
+      <div class="menu-item">Polievka</div>
+      <div class="menu-item">Hlavné jedlo</div>
+      <div class="menu-item">Dezert</div>
     </div>
   </div>
 </body>
