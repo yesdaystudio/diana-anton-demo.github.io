@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naša svadba | Diana & Anton</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#f6f1eb;
+  --text:#3e3a36;
+  --muted:#8b8178;
+  --line:#d8cfc5;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  font-family:'Raleway', sans-serif;
+  color:var(--text);
+  text-align:center;
+  padding:40px 20px 70px;
+}
+
+.container {
+  max-width:720px;
+  margin:auto;
+}
+
+.line {
+  width:70px;
+  height:1px;
+  background:var(--line);
+  margin:20px auto;
+}
+
+h1 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:52px;
+  font-weight:400;
+  margin:0;
+}
+
+.date {
+  font-size:12px;
+  letter-spacing:3px;
+  color:var(--muted);
+  margin-top:20px;
+}
+
+.hero img {
+  width:100%;
+  border-radius:14px;
+  margin:40px 0 20px;
+}
+
+.btn {
+  display:inline-block;
+  border:1px solid var(--text);
+  padding:12px 28px;
+  font-size:11px;
+  letter-spacing:3px;
+  text-decoration:none;
+  color:var(--text);
+  margin-top:15px;
+}
+
+.story {
+  margin:40px auto;
+  max-width:500px;
+  line-height:1.8;
+}
+
+.buttons {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.button {
+  cursor:pointer;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  background:none;
+  border:none;
+  color:var(--muted);
+}
+
+.button.active {
+  color:var(--text);
+}
+
+.content {
+  display:none;
+  margin-top:25px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,0.6);
+}
+
+.place-card {
+  margin:15px 0;
+}
+
+.place-title {
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--muted);
+}
+
+.place-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:24px;
+}
+
+.place-link {
+  font-size:11px;
+  letter-spacing:2px;
+  text-decoration:none;
+  border-bottom:1px solid #999;
+  color:var(--text);
+}
+
+.timeline strong {
+  font-family:'Cormorant Garamond', serif;
+}
+
+.color-palette {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:15px 0;
+}
+
+.color-dot {
+  width:22px;
+  height:22px;
+  border-radius:50%;
+}
+
+.calendar-buttons {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:18px 0 8px;
+}
+
+.calendar-btn {
+  display:inline-block;
+  border:1px solid var(--line);
+  padding:11px 18px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-decoration:none;
+  color:var(--text);
+  text-transform:uppercase;
+  background:rgba(255,255,255,0.45);
+}
+
+.calendar-btn:hover {
+  border-color:var(--text);
+}
+
+</style>
+
+<script>
+function toggle(id){
+  const sections=["mapa","harmonogram","menu","dresscode"];
+  const buttons=document.querySelectorAll(".button");
+
+  sections.forEach(sec=>{
+    let el=document.getElementById(sec);
+    if(sec===id){
+      el.style.display = el.style.display==="block" ? "none":"block";
+    } else {
+      el.style.display="none";
+    }
+  });
+
+  buttons.forEach(btn=>{
+    btn.classList.toggle("active", btn.dataset.target===id);
+  });
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="line"></div>
+<h1>Diana<br>&<br>Anton</h1>
+<div class="line"></div>
+
+<div class="date">19. september 2026</div>
+
+<div class="hero">
+<img src="rings.jpg">
+</div>
+
+<a class="btn" href="https://yesdaystudio.github.io/Klientska-zona-premium/">Potvrdiť účasť</a>
+<div class="calendar-buttons" aria-label="Uložiť dátum do kalendára">
+  <a class="calendar-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Svadba%20Diana%20%26%20Anton&dates=20260919/20260920&details=Svadobn%C3%BD%20de%C5%88%20Diany%20a%20Antona%20v%20Pie%C5%A1%C5%A5anoch.&location=Pie%C5%A1%C5%A5any%2C%20Slovensko" target="_blank" rel="noopener noreferrer">Uložiť do Google Calendar</a>
+  <a class="calendar-btn" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0APRODID%3A-//YesDay%20Studio//Wedding%20Calendar//SK%0ACALSCALE%3AGREGORIAN%0AMETHOD%3APUBLISH%0ABEGIN%3AVEVENT%0AUID%3Asvadba-diana-%26-anton%40yesdaystudio%0ADTSTAMP%3A20260428T000000Z%0ADTSTART%3BVALUE%3DDATE%3A20260919%0ADTEND%3BVALUE%3DDATE%3A20260920%0ASUMMARY%3ASvadba%20Diana%20%26%20Anton%0ADESCRIPTION%3ASvadobn%C3%BD%20de%C5%88%20Diany%20a%20Antona%20v%20Pie%C5%A1%C5%A5anoch.%0ALOCATION%3APie%C5%A1%C5%A5any%2C%20Slovensko%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="diana-anton-svadba.ics">Uložiť do Apple / iCal</a>
+</div>
+
+
+<div class="story">
+Kde sa všetko začalo, tam aj pokračuje. Prvý pohľad v Piešťanskom pivovare, prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch.
+</div>
+
+<div class="buttons">
+<button class="button" data-target="mapa" onclick="toggle('mapa')">Mapa</button>
+<button class="button" data-target="harmonogram" onclick="toggle('harmonogram')">Harmonogram</button>
+<button class="button" data-target="menu" onclick="toggle('menu')">Menu</button>
+<button class="button" data-target="dresscode" onclick="toggle('dresscode')">Dress code</button>
+</div>
+
+<div id="mapa" class="content">
+<div class="place-card">
+<div class="place-title">Obrad</div>
+<div class="place-name">Kaplnka Božského Srdca Ježišovho</div>
+<a class="place-link" href="https://maps.google.com?q=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany">Navigovať</a>
+</div>
+
+<div class="place-card">
+<div class="place-title">Hostina</div>
+<div class="place-name">Kursalon Piešťany</div>
+<a class="place-link" href="https://maps.google.com?q=Kursalon+Piestany">Navigovať</a>
+</div>
+
+<div class="place-card">
+<div class="place-title">Ubytovanie</div>
+<div class="place-name">Hotel Park Avenue</div>
+<a class="place-link" href="https://maps.google.com?q=Hotel+Park+Avenue+Piestany">Navigovať</a>
+</div>
+
+<div class="place-card">
+<div class="place-title">Ubytovanie</div>
+<div class="place-name">Penzión Diana</div>
+<a class="place-link" href="https://maps.google.com?q=Penzion+Diana+Piestany">Navigovať</a>
+</div>
+</div>
+
+<div id="harmonogram" class="content timeline">
+<p><strong>15:00</strong> Sobáš</p>
+<p><strong>17:00</strong> Večera</p>
+<p><strong>19:00</strong> Prvý tanec</p>
+<p><strong>20:00</strong> Zábava</p>
+</div>
+
+<div id="menu" class="content">
+<p>Polievka</p>
+<p>Hlavné jedlo</p>
+<p>Dezert</p>
+</div>
+
+<div id="dresscode" class="content">
+<p>Elegant / Formal</p>
+
+<div class="color-palette">
+<div class="color-dot" style="background:#e6dfd5;"></div>
+<div class="color-dot" style="background:#7a2d2d;"></div>
+<div class="color-dot" style="background:#c27c4b;"></div>
+<div class="color-dot" style="background:#8fa39b;"></div>
+<div class="color-dot" style="background:#2f5d50;"></div>
+<div class="color-dot" style="background:#d6a98f;"></div>
+</div>
+
+<p style="color:#8b8178;">
+Dámy: šaty, kostým<br>
+Páni: oblek alebo košeľa
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
