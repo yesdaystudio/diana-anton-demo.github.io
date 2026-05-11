@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Naša svadba | Diana & Anton</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Raleway:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f8f5f0;
+  --paper:#fffdf9;
+  --text:#2f2b27;
+  --muted:#8f867c;
+  --gold:#b08a5f;
+  --line:#dfd5ca;
+  --soft:#eee6dd;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--bg);
+  font-family:'Raleway',sans-serif;
+  text-align:center;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255,255,255,.95), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(255,255,255,.62), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(210,196,181,.24), transparent 36%);
+  z-index:-2;
+}
+
+/* Dekoratívne obrázky sú v priečinku assets. Kvietky sú použité ako obrázky, nie kreslené v CSS. */
+.floral{
+  position:absolute;
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  opacity:.72;
+  z-index:1;
+}
+.floral-left{left:-12px;top:95px;width:260px;height:560px;background-image:url('assets/floral-left.png')}
+.floral-story-left{left:54px;bottom:-30px;width:270px;height:330px;background-image:url('assets/floral-bottom-left.png')}
+.floral-story-right{right:60px;bottom:-20px;width:245px;height:310px;background-image:url('assets/floral-bottom-right.png')}
+.floral-rsvp-left{left:65px;top:22px;width:230px;height:265px;background-image:url('assets/floral-bottom-left.png')}
+.floral-rsvp-right{right:65px;top:-10px;width:265px;height:305px;background-image:url('assets/floral-right.png')}
+
+.nav{
+  position:absolute;
+  top:36px;
+  left:0;
+  right:0;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:58px;
+  padding:0 24px;
+}
+.nav a{
+  color:var(--text);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+  letter-spacing:2.2px;
+  padding:9px 0;
+  border-bottom:1px solid transparent;
+}
+.nav a:hover,.nav a.active{border-color:var(--gold)}
+
+.hero{
+  min-height:840px;
+  position:relative;
+  display:grid;
+  grid-template-columns:52% 48%;
+  background:var(--paper);
+  border-bottom:1px solid rgba(0,0,0,.04);
+}
+.hero-text{
+  position:relative;
+  z-index:2;
+  padding:192px 30px 92px 120px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.hero-photo{
+  min-height:840px;
+  background:
+    linear-gradient(90deg, rgba(255,253,249,1) 0%, rgba(255,253,249,.62) 23%, rgba(255,253,249,.08) 45%),
+    url('assets/rings.jpg') center/cover no-repeat;
+  filter:saturate(.72) sepia(.15) brightness(1.07);
+}
+.date-top{
+  font-family:'Cormorant Garamond',serif;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:18px;
+  margin-bottom:34px;
+}
+.names{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  text-transform:uppercase;
+  font-size:76px;
+  letter-spacing:18px;
+  line-height:1.26;
+  margin:0;
+}
+.amp{
+  display:block;
+  font-family:'Parisienne',cursive;
+  color:var(--gold);
+  font-size:58px;
+  letter-spacing:0;
+  line-height:.8;
+  text-transform:none;
+  margin:4px 0 8px;
+}
+.gold-line{width:1px;height:56px;background:var(--gold);margin:34px auto 28px}
+.subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  letter-spacing:5px;
+  font-size:23px;
+  margin:0 0 30px;
+}
+.verse{
+  max-width:430px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;
+  font-style:italic;
+  letter-spacing:1.5px;
+  line-height:1.8;
+  margin:0 auto;
+}
+.verse small{display:block;margin-top:18px;font-size:15px;letter-spacing:2px}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:210px;
+  min-height:44px;
+  border:1px solid var(--gold);
+  padding:13px 28px;
+  background:rgba(255,253,249,.72);
+  color:var(--text);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Cormorant Garamond',serif;
+  font-size:14px;
+  letter-spacing:3px;
+  cursor:pointer;
+}
+.btn:hover{background:#fffaf2}
+.calendar-wrap{position:relative;display:inline-block}
+.calendar-menu{
+  display:none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:calc(100% + 8px);
+  background:rgba(255,253,249,.96);
+  border:1px solid var(--line);
+  box-shadow:0 18px 45px rgba(80,61,45,.12);
+  z-index:20;
+}
+.calendar-menu a,.calendar-menu button{
+  display:block;
+  width:100%;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:transparent;
+  padding:13px 14px;
+  color:var(--text);
+  text-decoration:none;
+  font-family:'Raleway',sans-serif;
+  font-size:12px;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.calendar-menu a:last-child,.calendar-menu button:last-child{border-bottom:0}
+.calendar-wrap.open .calendar-menu{display:block}
+
+.info-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  background:rgba(255,253,249,.78);
+  border-top:1px solid var(--soft);
+  border-bottom:1px solid var(--soft);
+  padding:42px 9%;
+}
+.info-item{padding:8px 34px;border-right:1px solid var(--line)}
+.info-item:last-child{border-right:0}
+.icon{font-size:33px;color:var(--gold);font-family:'Cormorant Garamond',serif;margin-bottom:18px}
+.info-title{text-transform:uppercase;font-family:'Cormorant Garamond',serif;letter-spacing:2.4px;font-size:17px;margin-bottom:14px}
+.info-text{text-transform:uppercase;font-family:'Cormorant Garamond',serif;letter-spacing:1.8px;font-size:15px;line-height:1.8}
+
+.story-section{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  padding:76px 11% 56px;
+  background:rgba(255,253,249,.58);
+  align-items:center;
+}
+.bouquet-frame{position:relative;z-index:2;justify-self:end;width:min(370px,82vw);height:430px;border-radius:190px 190px 0 0;overflow:hidden;background:#e9dfd5}
+.bouquet-frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) sepia(.13) brightness(1.03)}
+.story-copy{position:relative;z-index:2;max-width:520px;justify-self:start}
+.section-title{font-family:'Cormorant Garamond',serif;text-transform:uppercase;font-size:42px;font-weight:300;letter-spacing:10px;margin:0 0 18px}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 30px;color:var(--gold)}
+.divider::before,.divider::after{content:"";width:54px;height:1px;background:var(--line)}
+.story-copy p{font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.8;letter-spacing:1px;margin:0 0 12px}
+.signature{font-family:'Parisienne',cursive;font-size:36px;color:#2f2b27;margin-top:24px}
+.heart{color:var(--gold);font-size:24px;margin-top:20px}
+
+.rsvp-section{position:relative;overflow:hidden;padding:42px 24px 34px;background:rgba(251,248,244,.86);border-top:1px solid var(--soft);border-bottom:1px solid var(--soft)}
+.rsvp-inner{position:relative;z-index:2;max-width:700px;margin:auto}
+.rsvp-title{font-family:'Cormorant Garamond',serif;text-transform:uppercase;letter-spacing:4px;font-size:27px;margin:0 0 22px;font-weight:300}
+.rsvp-section p{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:1.3px;margin:0 0 20px}
+
+.details-section{padding:64px 24px 76px;background:var(--paper)}
+.detail-buttons{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-bottom:28px}
+.detail-button{
+  border:0;
+  border-bottom:1px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  text-transform:uppercase;
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:3px;
+  font-size:17px;
+  color:var(--muted);
+  padding:8px 3px;
+}
+.detail-button.active{color:var(--text);border-color:var(--gold)}
+.content{
+  display:none;
+  max-width:780px;
+  margin:0 auto;
+  padding:32px 36px;
+  border:1px solid var(--line);
+  background:rgba(255,253,249,.72);
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;
+  letter-spacing:1.2px;
+  line-height:1.8;
+}
+.content.open{display:block}
+.place-card{margin:0 0 22px}.place-card:last-child{margin-bottom:0}
+.place-title{text-transform:uppercase;font-size:14px;letter-spacing:3px;color:var(--muted)}
+.place-name{font-size:26px;margin:4px 0 6px}.place-link{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--gold)}
+.timeline p{margin:8px 0}.timeline strong{font-size:24px;color:var(--gold);font-weight:400}
+.color-palette{display:flex;justify-content:center;gap:13px;margin:18px 0}.color-dot{width:24px;height:24px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.quote{padding:42px 20px 60px;background:#fbf7f2;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;letter-spacing:2px;line-height:1.55}.quote small{display:block;margin-top:13px;font-family:'Raleway',sans-serif;font-style:normal;text-transform:uppercase;font-size:11px;letter-spacing:2.5px;color:var(--muted)}
+
+@media(max-width:900px){
+  .nav{position:relative;top:auto;gap:18px;flex-wrap:wrap;padding:18px 16px;background:rgba(255,253,249,.88)}
+  .nav a{font-size:13px}
+  .hero{grid-template-columns:1fr;min-height:auto}.hero-photo{min-height:430px;order:-1;background-position:center}.hero-text{padding:52px 24px 60px}.names{font-size:52px;letter-spacing:12px}.date-top{font-size:15px}.subtitle{font-size:20px}.floral-left{width:180px;height:360px;top:150px;opacity:.45}.info-strip{grid-template-columns:1fr 1fr;padding:30px 20px}.info-item{border-right:0;border-bottom:1px solid var(--line)}.info-item:nth-child(odd){border-right:1px solid var(--line)}.info-item:nth-last-child(-n+2){border-bottom:0}.story-section{grid-template-columns:1fr;gap:34px;padding:52px 24px}.bouquet-frame,.story-copy{justify-self:center}.section-title{font-size:34px;letter-spacing:7px}.floral-story-left,.floral-story-right,.floral-rsvp-left,.floral-rsvp-right{opacity:.32}.hero-actions{flex-direction:column}.btn{width:100%}
+}
+@media(max-width:520px){.info-strip{grid-template-columns:1fr}.info-item,.info-item:nth-child(odd){border-right:0;border-bottom:1px solid var(--line)}.info-item:last-child{border-bottom:0}.names{font-size:43px;letter-spacing:9px}.amp{font-size:48px}.hero-photo{min-height:330px}.content{padding:24px 18px}.detail-buttons{gap:14px}.detail-button{font-size:15px}.calendar-menu{position:static;margin-top:8px}.floral{display:none}}
+</style>
+
+<script>
+const wedding = {
+  title: "Svadba Diana & Anton",
+  dateText: "19. september 2026",
+  startLocal: "20260919T150000",
+  endLocal: "20260919T160000",
+  startGoogleUtc: "20260919T130000Z",
+  endGoogleUtc: "20260919T140000Z",
+  location: "Kaplnka Božského Srdca Ježišovho, Piešťany",
+  details: "S radosťou vás pozývame osláviť náš svadobný deň."
+};
+
+function toggle(id){
+  const sections=["mapa","harmonogram","menu","dresscode"];
+  const buttons=document.querySelectorAll(".detail-button");
+  sections.forEach(sec=>{
+    const el=document.getElementById(sec);
+    if(sec===id){ el.classList.toggle("open"); }
+    else { el.classList.remove("open"); }
+  });
+  buttons.forEach(btn=>{
+    btn.classList.toggle("active", btn.dataset.target===id && document.getElementById(id).classList.contains("open"));
+  });
+}
+
+function toggleCalendar(){
+  document.querySelector('.calendar-wrap').classList.toggle('open');
+}
+
+function googleCalendarLink(){
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: wedding.title,
+    dates: `${wedding.startGoogleUtc}/${wedding.endGoogleUtc}`,
+    details: wedding.details,
+    location: wedding.location,
+    ctz: 'Europe/Bratislava'
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+function downloadICS(){
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Diana Anton Wedding//SK',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'UID:diana-anton-wedding-20260919@yesdaystudio',
+    'DTSTAMP:20260919T130000Z',
+    `DTSTART;TZID=Europe/Bratislava:${wedding.startLocal}`,
+    `DTEND;TZID=Europe/Bratislava:${wedding.endLocal}`,
+    `SUMMARY:${wedding.title}`,
+    `DESCRIPTION:${wedding.details}`,
+    `LOCATION:${wedding.location}`,
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'svadba-diana-anton.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const google = document.getElementById('googleCalendar');
+  if(google) google.href = googleCalendarLink();
+  document.addEventListener('click',(e)=>{
+    const wrap=document.querySelector('.calendar-wrap');
+    if(wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
+  });
+});
+</script>
+</head>
+
+<body>
+<nav class="nav" aria-label="Hlavná navigácia">
+  <a class="active" href="#domov">Domov</a>
+  <a href="#onas">O nás</a>
+  <a href="#program">Program</a>
+  <a href="#informacie">Informácie</a>
+  <a href="https://yesdaystudio.github.io/rsvp.html?project_id=1">RSVP</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<header class="hero" id="domov">
+  <div class="floral floral-left"></div>
+  <div class="hero-text">
+    <div class="date-top">19. september 2026</div>
+    <h1 class="names">Diana<span class="amp">&</span>Anton</h1>
+    <div class="gold-line"></div>
+    <p class="subtitle">Budeme sa brať!</p>
+    <p class="verse">Kde sa všetko začalo, tam aj pokračuje.<small>Piešťany · 15:00</small></p>
+    <div class="hero-actions">
+      <a class="btn" href="https://yesdaystudio.github.io/rsvp.html?project_id=1">Potvrdiť účasť</a>
+      <div class="calendar-wrap">
+        <button class="btn" type="button" onclick="toggleCalendar()">Uložiť dátum</button>
+        <div class="calendar-menu" aria-label="Výber kalendára">
+          <a id="googleCalendar" target="_blank" rel="noopener">Google kalendár</a>
+          <button type="button" onclick="downloadICS()">Apple kalendár</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo" role="img" aria-label="Svadobné prstene"></div>
+</header>
+
+<section class="info-strip" id="program">
+  <div class="info-item"><div class="icon">▦</div><div class="info-title">Kedy</div><div class="info-text">19. september 2026<br>15:00</div></div>
+  <div class="info-item"><div class="icon">⌖</div><div class="info-title">Kde</div><div class="info-text">Kaplnka Božského<br>Srdca Ježišovho</div></div>
+  <div class="info-item"><div class="icon">∞</div><div class="info-title">Obrad</div><div class="info-text">15:00<br>Piešťany</div></div>
+  <div class="info-item"><div class="icon">♢</div><div class="info-title">Oslava</div><div class="info-text">Kursalon<br>Piešťany</div></div>
+</section>
+
+<section class="story-section" id="onas">
+  <div class="floral floral-story-left"></div>
+  <div class="floral floral-story-right"></div>
+  <div class="bouquet-frame"><img src="assets/bouquet.jpg" alt="Svadobná kytica" onerror="this.style.display='none'"></div>
+  <div class="story-copy">
+    <h2 class="section-title">O nás</h2>
+    <div class="divider">✦</div>
+    <p>Prvý pohľad v Piešťanskom pivovare, prvá pusa neďaleko a uzavretie manželstva tiež v Piešťanoch.</p>
+    <p>Za tú dobu k nám pribudli dve deti, mačka, byt, dva tituly a veľa lásky.</p>
+    <p>V septembri všetko už len spečatíme.</p>
+    <div class="signature">Diana & Anton</div>
+    <div class="heart">♥</div>
+  </div>
+</section>
+
+<section class="rsvp-section">
+  <div class="floral floral-rsvp-left"></div>
+  <div class="floral floral-rsvp-right"></div>
+  <div class="rsvp-inner">
+    <h2 class="rsvp-title">Potvrďte svoju účasť</h2>
+    <p>Prosíme o potvrdenie účasti najneskôr do 15. júna 2026.</p>
+    <a class="btn" href="https://yesdaystudio.github.io/rsvp.html?project_id=1">RSVP</a>
+  </div>
+</section>
+
+<section class="details-section" id="informacie">
+  <h2 class="section-title">Informácie</h2>
+  <div class="divider">✦</div>
+  <div class="detail-buttons">
+    <button class="detail-button" data-target="mapa" onclick="toggle('mapa')">Mapa</button>
+    <button class="detail-button" data-target="harmonogram" onclick="toggle('harmonogram')">Harmonogram</button>
+    <button class="detail-button" data-target="menu" onclick="toggle('menu')">Menu</button>
+    <button class="detail-button" data-target="dresscode" onclick="toggle('dresscode')">Dress code</button>
+  </div>
+
+  <div id="mapa" class="content">
+    <div class="place-card"><div class="place-title">Obrad</div><div class="place-name">Kaplnka Božského Srdca Ježišovho</div><a class="place-link" href="https://maps.google.com?q=Kaplnka+Bozskeho+Srdca+Jezisovho+Piestany" target="_blank" rel="noopener">Navigovať</a></div>
+    <div class="place-card"><div class="place-title">Hostina</div><div class="place-name">Kursalon Piešťany</div><a class="place-link" href="https://maps.google.com?q=Kursalon+Piestany" target="_blank" rel="noopener">Navigovať</a></div>
+    <div class="place-card"><div class="place-title">Ubytovanie</div><div class="place-name">Hotel Park Avenue</div><a class="place-link" href="https://maps.google.com?q=Hotel+Park+Avenue+Piestany" target="_blank" rel="noopener">Navigovať</a></div>
+    <div class="place-card"><div class="place-title">Ubytovanie</div><div class="place-name">Penzión Diana</div><a class="place-link" href="https://maps.google.com?q=Penzion+Diana+Piestany" target="_blank" rel="noopener">Navigovať</a></div>
+  </div>
+
+  <div id="harmonogram" class="content timeline">
+    <p><strong>15:00</strong> Sobáš</p>
+    <p><strong>17:00</strong> Večera</p>
+    <p><strong>19:00</strong> Prvý tanec</p>
+    <p><strong>20:00</strong> Zábava</p>
+  </div>
+
+  <div id="menu" class="content">
+    <p>Polievka</p><p>Hlavné jedlo</p><p>Dezert</p>
+  </div>
+
+  <div id="dresscode" class="content">
+    <p>Elegant / Formal</p>
+    <div class="color-palette">
+      <div class="color-dot" style="background:#e6dfd5"></div><div class="color-dot" style="background:#7a2d2d"></div><div class="color-dot" style="background:#c27c4b"></div><div class="color-dot" style="background:#8fa39b"></div><div class="color-dot" style="background:#2f5d50"></div><div class="color-dot" style="background:#d6a98f"></div>
+    </div>
+    <p style="color:var(--muted)">Dámy: šaty, kostým<br>Páni: oblek alebo košeľa</p>
+  </div>
+</section>
+
+<footer class="quote" id="kontakt">
+  „Láska nie je o tom, čo očakávame, že dostaneme,<br>ale o tom, čo sme ochotní dať.“
+  <small>– Kathy Caldwell</small>
+</footer>
+</body>
+</html>
